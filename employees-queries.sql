@@ -72,3 +72,76 @@ SELECT t.hire_date, t.number_hired, (@total := @total + t.number_hired) AS total
 	FROM (SELECT hire_date, COUNT(*) AS number_hired FROM employees WHERE hire_date > '2000-01-01' GROUP BY hire_date) AS t, (SELECT @total := 0) AS n;  
 
 
+
+/*	Second or Nth Highest Salary	*/ 
+
+-- Limit emp_no <= 10100 in order to speed up query 
+WITH full_employee_salaries AS (
+	SELECT d.dept_name, s.emp_no, MAX(s.salary) AS salary
+		FROM (SELECT * FROM salaries WHERE emp_no <= 10100) s	
+			JOIN dept_emp de USING (emp_no) 
+			JOIN departments d USING(dept_no) 
+		GROUP BY 1 , 2
+), 
+salary_rankings AS (
+	SELECT *, DENSE_RANK() OVER (ORDER BY salary DESC) AS salary_ranking 
+		FROM full_employee_salaries
+)
+SELECT * FROM salary_rankings WHERE salary_ranking = 3; 
+
+
+SET @n=3; 
+WITH full_employee_salaries AS (
+SELECT d.dept_name, s.emp_no, MAX(s.salary) AS salary
+	FROM (SELECT * FROM salaries WHERE emp_no <= 10100) s	
+		JOIN dept_emp de USING (emp_no) 
+		JOIN departments d USING(dept_no) 
+	GROUP BY 1 , 2
+) 
+SELECT s1.* FROM full_employee_salaries AS s1 
+	WHERE (@n-1)=(SELECT COUNT(DISTINCT salary) FROM full_employee_salaries AS s2 WHERE s2.salary > s1.salary); 
+
+
+
+/*	Second or Nth Highest Salary Department Wise	*/ 
+
+WITH full_employee_salaries AS (
+	SELECT d.dept_name, s.emp_no, MAX(s.salary) AS salary
+		FROM (SELECT * FROM salaries) s	
+			JOIN dept_emp de USING (emp_no) 
+			JOIN departments d USING(dept_no) 
+		GROUP BY 1 , 2
+), 
+salary_rankings_dept AS (
+	SELECT *, DENSE_RANK() OVER (PARTITION BY dept_name ORDER BY salary DESC) AS salary_ranking 
+		FROM full_employee_salaries
+)
+SELECT * FROM salary_rankings_dept WHERE salary_ranking = 3; 
+
+
+
+/*	Current Manager in Each Department	*/ 
+
+SELECT dept_no, COUNT(emp_no) AS number_of_managers 
+			FROM dept_manager GROUP BY dept_no; 
+
+
+WITH current_manager AS (
+SELECT m.dept_no, m.emp_no, m.from_date 
+	FROM dept_manager m
+	JOIN (SELECT dept_no, MAX(from_date) AS from_date 
+			FROM dept_manager GROUP BY dept_no) tt 
+		USING (from_date)
+) 
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS manager_name, d.dept_name, 
+		cm.from_date AS manager_date, e.hire_date, 
+        FLOOR(DATEDIFF(cm.from_date, e.hire_date)/365) AS years_to_be_manager
+	FROM current_manager cm 
+		JOIN departments d USING(dept_no) 
+		JOIN employees e USING(emp_no); 
+
+
+
+/*	Getting All Level Child	*/ 
+-- The database does not contain manager-employee relations, thus not able to do this. 
+
