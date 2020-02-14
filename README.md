@@ -64,7 +64,17 @@
 2. Pivot title rows by year. 
 3. Find the 3 most recently hired employees and what department they work in.
 4. Find the Running Daily Sum of number of employees hired ever. 
-5. Find the second or Nth highest salary by department. 
+5. Find the second or Nth highest salary, by departments. 
+
+
+### Northwind
+1. List row number of products, by categories. 
+2. Total sales per product.
+3. Running total sales by product categories. 
+4. Lag and lead in order days. 
+5. First and last order dates and difference between order days.
+6. Group customers based on purchase frequency. 
+
 
 
 ### Reference 
