@@ -1,8 +1,10 @@
 # SQL Practice 
 
-This repository contains query exercises using [MySQL](https://www.mysql.com/). I used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) to write these queries. Below are the three databases I used for practice. I collected questions online (thanks for these content-providers) and answered most of them. I also wrote a simple [python notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis. 
+This repository contains query exercises in [MySQL](https://www.mysql.com/). 
 
-You are welcome to use them. Any comments or suggestions are also welcomed and appreciated. 
+I used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) to write these queries. Below are the three databases I used for practice. I collected questions online (thanks to these content-providers) and answered most of them. I also wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python. 
+
+You are welcome to use it or contribute to it. Any comments or suggestions are also welcomed and appreciated. 
 
 
 ## MySQL Databases
