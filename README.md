@@ -10,20 +10,20 @@
 ## Collection of questions
 
 ### sakila
-1. Which actors have the first name 'Scarlett'?
-2. Which actors have the last name 'Johansson'? 
-3. How many distinct actors last names are there? 
+1. Which actors have the first name 'Scarlett'? 
+2. Which actors have the last name 'Johansson'?  
+3. How many distinct actors last names are there?  
 4. Which last names are not repeated? 
 5. Which last names appear more than once? 
 6. Which actor has appeared in the most films? 
 7. Is 'Academy Dinosaur' available for rent from Store 1? 
-- Step 1: which copies are at Store 1? 
-- Step 2: pick an inventory_id to rent: 
+    - Step 1: which copies are at Store 1? 
+    - Step 2: pick an inventory_id to rent: 
 8. Insert a record to represent Mary Smith renting 'Academy Dinosaur' from Mike Hillyer at Store 1 today. 
 9. When is 'Academy Dinosaur' due? 
-- Step 1: what is the rental duration? 
-- Step 2: which rental are we referring to -- the last one. 
-- Step 3: add the rental duration to the rental date. 
+    - Step 1: what is the rental duration? 
+    - Step 2: which rental are we referring to -- the last one. 
+    - Step 3: add the rental duration to the rental date. 
 10. What is that average running time of all the films in the sakila DB? 
 11. What is the average running time of films by category? 
 12. Which film categories are long? 
@@ -60,9 +60,11 @@
 
 
 ### employees
-1. Find the number of employees hired each year. Find the number of employees hired each month. Find the number of employees hired each week. 2. Pivot title rows by year. 
+1. Find the number of employees hired each year, the number of employees hired each month, and the number of employees hired each week. 
+2. Pivot title rows by year. 
 3. Find the 3 most recently hired employees and what department they work in.
 4. Find the Running Daily Sum of number of employees hired ever. 
+5. Find the second or Nth highest salary by department. 
 
 
 ### Reference 
@@ -70,3 +72,4 @@
 - http://courses.cs.tau.ac.il/databases/databases201213a/assignments/hw1.pdf 
 - https://www.chegg.com/homework-help/questions-and-answers/exercise-working-sakila-mysql-database-needed-downloaded-http-devmysqlcom-doc-sakila-en-sa-q25309942 
 - http://mercury.pr.erau.edu/~siewerts/cs317/assignments/Fall-16/Exercise-1-Requirements.pdf
+- http://www.techsapphire.in/index/sql_complex_queries_query_optimization_and_interview_questions_sql_server_2016/0-190 
