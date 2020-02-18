@@ -51,7 +51,7 @@
     - TCL (Transaction Control Language) — COMMIT, ROLLBACK and SAVEPOINT
 18.	What is Primary Key and Foreign Key?
     - A Primary key is a column (or collection of columns) that uniquely identifies each row in the table. NULL values are not allowed. 
-    - A Foreign Key in one table is the Primary Key of another table. It maintains referential integrity by enforcing a link between the data in two tables. 
+    - A Foreign Key in one table is the Primary Key of another table. It can be NULL and it does not have to be unique. It maintains referential integrity by enforcing a link between the data in two tables. 
 19.	What is the difference between CROSS JOIN and NATURAL JOIN?
     - CROSS JOIN produces the cross product or Cartesian product of two tables. 
     - NATURAL JOIN is based on all the columns having the same same and data types in both the tables. 
@@ -60,5 +60,5 @@
     - Logical Operators
     - Comparison Operators 
 21.	Are NULL values same as that of zero or a blank space? 
-    - No. 
+    - A Null value is different from a zero value or a field that contains spaces. A field with a NULL value is one that has been left blank during record creation. 
 22.	To be continued… 
