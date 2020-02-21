@@ -1,5 +1,5 @@
 
-# Collection of query questions using sakila, employees, and northwind database
+# Collection of query questions using sakila, employees, and northwind databases
 
 ## sakila [solutions](https://github.com/xning11/SQLpractice/blob/master/sakila-queries.sql)
 1. Which actors have the first name 'Scarlett'? 
