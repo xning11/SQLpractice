@@ -6,9 +6,9 @@ reference https://github.com/MathWay/db_course_stanford_winter2013/tree/master/0
 
 
 ## Movie-Rating Query Exercises 
-1. Movie ( mID, title, year, director )
-2. Reviewer ( rID, name )
-3. Rating ( rID, mID, stars, ratingDate )
+- Movie ( mID, title, year, director )
+- Reviewer ( rID, name )
+- Rating ( rID, mID, stars, ratingDate )
 
 1. Find the names of all reviewers who rated Gone with the Wind. 
 
@@ -158,9 +158,9 @@ where stars in (select max(stars)
 
 
 ## Social-Network Query Exercises
-1. Highschooler ( ID, name, grade )
-2. Friend ( ID1, ID2 ) -- Friendship is mutual, so if (123, 456) is in the Friend table, so is (456, 123). 
-3. Likes ( ID1, ID2 ) -- Liking someone is not necessarily mutual, so if (123, 456) is in the Likes table, there is no guarantee that (456, 123) is also present.
+- Highschooler ( ID, name, grade )
+- Friend ( ID1, ID2 ) -- Friendship is mutual, so if (123, 456) is in the Friend table, so is (456, 123). 
+- Likes ( ID1, ID2 ) -- Liking someone is not necessarily mutual, so if (123, 456) is in the Likes table, there is no guarantee that (456, 123) is also present.
 
 
 1. For every situation where student A likes student B, but student B likes a different student C, return the names and grades of A, B, and C. 
@@ -265,6 +265,7 @@ where c = (select max(c)
 insert into Reviewer values (209, 'Roger Ebert')
 ```
 
+
 2. Insert 5-star ratings by James Cameron for all movies in the database. Leave the review date as NULL. 
 
 ```SQL
@@ -285,6 +286,7 @@ where mid in (select mid
               having avg(stars) >=4)
 ```
 
+
 4. Remove all ratings where the movie's year is before 1970 or after 2000, and the rating is fewer than 4 stars. 
 
 ```SQL
@@ -295,12 +297,14 @@ where mid in (select mid
       and stars <4
 ```
 
+
 1. It's time for the seniors to graduate. Remove all 12th graders from Highschooler. 
 
 ```SQL
 delete from Highschooler
 where grade =12
 ```
+
 
 2. If two students A and B are friends, and A likes B but not vice-versa, remove the Likes tuple. 
 
@@ -313,6 +317,7 @@ where id1 in (select likes.id1
                       from friend join likes using (id1) 
                       where friend.id2 = likes.id2)
 ```
+
 
 3. For all cases where A is friends with B, and B is friends with C, add a new friendship for the pair A and C. Do not add duplicate friendships, friendships that already exist, or friendships with oneself. 
 
