@@ -2,8 +2,6 @@
 
 **Stanford University** https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/
 
-reference https://github.com/MathWay/db_course_stanford_winter2013/tree/master/06_SQL 
-
 
 ## Movie-Rating Query Exercises 
 - Movie ( mID, title, year, director )
