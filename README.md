@@ -4,7 +4,6 @@ This repository contains query exercises in [MySQL](https://www.mysql.com/).
 
 I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blob/master/sakila-employees-northwind.MD) online and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice. 
 
-**Databases**
 1. sakila [database](https://dev.mysql.com/doc/index-other.html), [solutions](https://github.com/xning11/SQLpractice/blob/master/sakila-queries.sql)
 
 2. employees [database](https://dev.mysql.com/doc/employee/en/employees-installation.html), [solutions](https://github.com/xning11/SQLpractice/blob/master/employees-queries.sql)
