@@ -5,10 +5,12 @@ This repository contains query exercises in [MySQL](https://www.mysql.com/).
 I collected these sql questions online (thanks to these content-providers) and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice. 
 
 I  wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python. 
-
-I collected a list of query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-stanford-db-sql-course.MD) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/).  
-
+ 
 I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.MD). 
+
+I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-stanford-db-sql-course.MD) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/). 
+
+I added a [notebook](https://github.com/xning11/SQLpractice/blob/master/sql-in-pandas.ipynb) to practice some data process using both sql and pandas. 
 
 You are welcome to use it. Any comments or suggestions are also welcomed and appreciated. 
 
