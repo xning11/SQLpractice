@@ -335,3 +335,7 @@ from friend f1, friend f2
 where f1.id2 = f2.id1 and f1.id1 <> f2.id2 
 and not f1.id1 in (select f3.id1 from friend f3 where f3.id2 = f2.id2);
 ```
+
+
+**Reference**
+https://github.com/MathWay/db_course_stanford_winter2013 
