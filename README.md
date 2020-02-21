@@ -2,7 +2,7 @@
 
 This repository contains query exercises in [MySQL](https://www.mysql.com/). 
 
-I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blob/master/sakila-employees-northwind.MD) online and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice. 
+I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blob/master/sakila-employees-northwind.md) online and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice. 
 
 1. sakila [database](https://dev.mysql.com/doc/index-other.html), [solutions](https://github.com/xning11/SQLpractice/blob/master/sakila-queries.sql)
 
@@ -13,9 +13,9 @@ I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blo
 
 I wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python. 
  
-I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.MD). 
+I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.md). 
 
-I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-db-course-stanford.MD) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/). 
+I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-db-course-stanford.md) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/). 
 
 I added a [notebook](https://github.com/xning11/SQLpractice/blob/master/sql-in-pandas.ipynb) to practice some data process using both sql and pandas. 
 
