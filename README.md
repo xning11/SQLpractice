@@ -2,9 +2,15 @@
 
 This repository contains query exercises in [MySQL](https://www.mysql.com/). 
 
-I used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/) to write these queries. Below are the three databases I used for practice. I collected questions online (thanks to these content-providers) and answered most of them. I also wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python. 
+I collected these sql questions online (thanks to these content-providers) and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice. 
 
-You are welcome to use it or contribute to it. Any comments or suggestions are also welcomed and appreciated. 
+I  wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python. 
+
+I collected a list of query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-stanford-db-sql-course.MD) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/).  
+
+I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.MD). 
+
+You are welcome to use it. Any comments or suggestions are also welcomed and appreciated. 
 
 
 ## MySQL Databases
@@ -86,3 +92,5 @@ You are welcome to use it or contribute to it. Any comments or suggestions are a
 - https://www.chegg.com/homework-help/questions-and-answers/exercise-working-sakila-mysql-database-needed-downloaded-http-devmysqlcom-doc-sakila-en-sa-q25309942 
 - http://mercury.pr.erau.edu/~siewerts/cs317/assignments/Fall-16/Exercise-1-Requirements.pdf
 - http://www.techsapphire.in/index/sql_complex_queries_query_optimization_and_interview_questions_sql_server_2016/0-190 
+- https://github.com/MathWay/db_course_stanford_winter2013/tree/master/06_SQL 
+
