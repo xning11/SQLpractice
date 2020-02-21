@@ -163,30 +163,7 @@ where stars in (select max(stars)
 - Likes ( ID1, ID2 ) -- Liking someone is not necessarily mutual, so if (123, 456) is in the Likes table, there is no guarantee that (456, 123) is also present.
 
 
-1. For every situation where student A likes student B, but student B likes a different student C, return the names and grades of A, B, and C. 
-
-```SQL
-select (select name from Highschooler where id=l1.id1), 
-       (select grade from Highschooler where id=l1.id1), 
-       (select name from Highschooler where id=l1.id2), 
-       (select grade from Highschooler where id=l1.id2), 
-       (select name from Highschooler where id=l2.id2), 
-       (select grade from Highschooler where id=l2.id2)
-from likes l1 join likes l2  on l1.id2=l2.id1
-where l1.id1 <> l2.id2
-```
-
-2. Find those students for whom all of their friends are in different grades from themselves. Return the students' names and grades. 
-
-```SQL
-select name, grade
-from Highschooler h1
-where not grade in (select grade 
-                    from (Highschooler h2 join friend on h2.id=id1) a 
-                    where a.id2=h1.id)
-```
-
-3. For every situation where student A likes student B, but we have no information about whom B likes (that is, B does not appear as an ID1 in the Likes table), return A and B's names and grades. 
+1. For every situation where student A likes student B, but we have no information about whom B likes (that is, B does not appear as an ID1 in the Likes table), return A and B's names and grades. 
 
 ```SQL
 select (select name from Highschooler where id=id1), 
@@ -198,7 +175,7 @@ where id2 not in (select id1 from likes)
 ```
 
 
-4. Find all students who do not appear in the Likes table (as a student who likes or is liked) and return their names and grades. Sort by grade, then by name within each grade. 
+2. Find all students who do not appear in the Likes table (as a student who likes or is liked) and return their names and grades. Sort by grade, then by name within each grade. 
 
 ```SQL
 select name, grade
@@ -208,7 +185,7 @@ order by grade, name
 ```
 
 
-5. For each student A who likes a student B where the two are not friends, find if they have a friend C in common (who can introduce them!). For all such trios, return the name and grade of A, B, and C. 
+3. For each student A who likes a student B where the two are not friends, find if they have a friend C in common (who can introduce them!). For all such trios, return the name and grade of A, B, and C. 
 
 ```SQL
 SELECT ha.name, ha.grade,  hb.name, hb.grade, hc.name, hc.grade 
@@ -220,7 +197,7 @@ WHERE ha.id IN (SELECT f.id1 FROM friend f WHERE f.id2 = hc.id)
 ```
 
 
-6. Find the name and grade of all students who are liked by more than one other student.  
+4. Find the name and grade of all students who are liked by more than one other student.  
 
 ```SQL
 select h.name, h.grade 
@@ -231,6 +208,27 @@ join (
     group by id2
     having count(id1) >1) ll
     on ll.id2 = h.id ; 
+```
+
+
+5. For every situation where student A likes student B, but student B likes a different student C, return the names and grades of A, B, and C. 
+
+```SQL
+SELECT ha.name, ha.grade, hb.name, hb.grade, hc.name, hc.grade   
+FROM highschooler ha, highschooler hb, highschooler hc  
+JOIN likes l1, likes l2 
+WHERE ha.id = l1.id1 AND hb.id = l1.id2 AND hc.id = l2.id2 
+AND l1.id2 = l2.id1 and l1.id1 <> l2.id2; 
+```
+
+6. Find those students for whom all of their friends are in different grades from themselves. Return the students' names and grades. 
+
+```SQL
+select name, grade
+from Highschooler h1
+where not grade in (select grade 
+                    from (Highschooler h2 join friend on h2.id=id1) a 
+                    where a.id2=h1.id)
 ```
 
 
@@ -256,6 +254,7 @@ where c = (select max(c)
                  from friend 
                  group by id1))
 ```
+
 
 ## Data manipulation language
 
