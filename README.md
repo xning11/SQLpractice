@@ -16,7 +16,7 @@ I wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/m
  
 I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.MD). 
 
-I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-stanford-db-sql-course.MD) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/). 
+I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-db-course-stanford.MD) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/). 
 
 I added a [notebook](https://github.com/xning11/SQLpractice/blob/master/sql-in-pandas.ipynb) to practice some data process using both sql and pandas. 
 
