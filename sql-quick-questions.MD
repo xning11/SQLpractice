@@ -19,7 +19,7 @@
 7.	What does UNION do? What is the difference between UNION and UNION ALL?
     - Combine the result sets of two or more SELECT statements. 
     - UNION will remove duplicated rows, while UNION ALL doesn’t.  
-8.	What is the difference between an inner and outer join? 
+8.	What is the difference between an INNER and OUTER JOIN? 
     - Both inner and outer joins are used to combine rows from two or more tables into a single result. 
     - An inner join finds and returns matching data from tables, while an outer join finds and returns matching data and some dissimilar data from tables. 
 9.	What are the NVL and the NVL2 functions in SQL? How do they differ?
