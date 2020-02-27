@@ -2,7 +2,7 @@
 
 This repository contains query exercises in [MySQL](https://www.mysql.com/). 
 
-I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blob/master/sakila-employees-northwind.md) online and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice. 
+I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blob/master/sakila-employees-northwind.md) online and practiced them using [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/). Below are the three databases I used for practice.
 
 1. sakila [database](https://dev.mysql.com/doc/index-other.html), [solutions](https://github.com/xning11/SQLpractice/blob/master/sakila-queries.sql)
 
@@ -10,16 +10,14 @@ I collected a list of sql [questions](https://github.com/xning11/SQLpractice/blo
 
 3. Northwind [database](http://perso.sinfronteras.ws/index.php/File:NorthwindDB.zip), [solutions](https://github.com/xning11/SQLpractice/blob/master/northwind-queries.sql)
 
+I wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python.
 
-I wrote a simple [notebook](https://github.com/xning11/SQLpractice/blob/master/mysql-in-python.ipynb) to connect&write queries for later data analysis in python. 
- 
-I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.md). 
+I collected a list of SQL high-level quick [questions](https://github.com/xning11/SQLpractice/blob/master/sql-quick-questions.md).
 
-I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-db-course-stanford.md) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/). 
+I completed and collected a list of SQL query [exercises](https://github.com/xning11/SQLpractice/blob/master/sql-db-course-stanford.md) from [Stanform DB5 SQL Course](https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/course/).
 
-I added a [notebook](https://github.com/xning11/SQLpractice/blob/master/sql-in-pandas.ipynb) to practice some data process using both sql and pandas. 
+I added a [notebook](https://github.com/xning11/SQLpractice/blob/master/sql-in-pandas.ipynb) to practice some data process using both sql and pandas.
 
-You are welcome to use it. Any comments or suggestions are also welcomed and appreciated. 
+I collected a list of [posts](https://github.com/xning11/SQLpractice/blob/master/sql-useful-posts.md) discussing A/B testings and other interesting topics in SQL.
 
-
-
+You are welcome to use it. Any comments or suggestions are also welcomed and appreciated.
