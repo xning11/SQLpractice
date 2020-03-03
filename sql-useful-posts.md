@@ -104,7 +104,7 @@ cumulative AS (
     FROM results
     ORDER BY experiment_test, experiment_result, DAY
 ),
-daily AS (
+daily_experiments AS (
     SELECT
         experiment_arm.day,
         experiment_arm.experiment_test,
@@ -176,4 +176,48 @@ from
 order by
     z.z_value_name,
     s.week;
+```
+
+## Find user sessions [link](https://czep.net/16/session-ids-sql.html) [link](https://mode.com/blog/finding-user-sessions-sql)
+
+```sql
+lagged_events as (
+    select
+        user_id,
+        event_time,
+        lag(event_time) over (partition by date(event_time), user_id order by event_time) as prev
+    from
+        db_events
+),
+new_sessions as (
+    select
+        user_id,
+        event_time,
+        case
+            when prev is null then 1
+            when event_time - prev > interval '30 minutes' then 1
+            else 0
+        end as is_new_session
+    from
+        lagged_events
+),
+session_index as (
+    select
+        user_id,
+        event_time,
+        is_new_session,
+        sum(is_new_session) over (partition by user_id order by event_time rows between unbounded preceding and current row) as session_index
+    from
+        new_sessions
+)
+select
+    cast(user_id as varchar) || '.' || cast(session_index as varchar) as session_id,
+    user_id,
+    event_time,
+    is_new_session,
+    session_index
+from
+    session_index
+order by 
+    user_id, event_time
 ```
