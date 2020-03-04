@@ -219,5 +219,39 @@ select
 from
     session_index
 order by 
-    user_id, event_time
+    user_id, event_time;
+```
+
+## Simple (and weighted and exponential) Moving Average in SQL [link](http://tomaslind.net/2013/10/30/exponential-moving-average-in-t-sql/) 
+
+```sql
+select 
+    day, 
+    users,
+    ceiling(avg(users) over (order by day rows 6 PRECEDING)) as 'moving-avg-7', 
+    ceiling(avg(users) over (order by day rows between 4 PRECEDING and 0 following)) as 'moving-avg-5'
+from daily_active_users
+order by 1;
+```
+
+```sql
+SELECT
+    T0.StockId
+    ,T0.QuoteId
+    ,T0.QuoteDay
+    ,T0.QuoteClose
+    ,CASE WHEN T0.QuoteId >= 9 THEN SUM((WMA9.QuoteId - T0.QuoteId + 9.0) * WMA9.QuoteClose) / 45.0 END AS WMA9
+FROM
+    CTE_QUOTES AS T0
+LEFT OUTER JOIN
+    CTE_QUOTES AS WMA9
+ON
+    T0.StockId = WMA9.StockId
+AND
+    WMA9.QuoteId <= T0.QuoteId AND   WMA9.QuoteId >= T0.QuoteId - 9
+GROUP BY
+    T0.StockId
+    ,T0.QuoteId
+    ,T0.QuoteDay
+    ,T0.QuoteClose;
 ```
