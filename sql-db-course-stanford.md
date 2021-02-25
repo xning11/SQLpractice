@@ -10,15 +10,24 @@
 
 1. Find the names of all reviewers who rated Gone with the Wind. 
 
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
+
 ```SQL
 select distinct name
 from Reviewer join Rating using (rid)
 where mid in (select mid 
               from movie 
               where title = 'Gone with the Wind')
+
 ```
 
+</details>
+
 2. For any rating where the reviewer is the same as the director of the movie, return the reviewer name, movie title, and number of stars. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select name, title, stars
@@ -26,7 +35,12 @@ from movie join reviewer join rating using (rid, mid)
 where name = director
 ```
 
+</details>
+
 3. Return all reviewer names and movie names together in a single list, alphabetized. (Sorting by the first name of the reviewer and first word in the title is fine; no need for special processing on last names or removing "The".) 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select name
@@ -38,7 +52,12 @@ from (select name
 order by name
 ```
 
+</details>
+
 4. Find the titles of all movies not reviewed by Chris Jackson. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select title
@@ -50,7 +69,12 @@ where not mid in (select mid
                                where name = 'Chris Jackson'))
 ```
 
+</details>
+
 5. For all pairs of reviewers such that both reviewers gave a rating to the same movie, return the names of both reviewers. Eliminate duplicates, don't pair reviewers with themselves, and include each pair only once. For each pair, return the names in the pair in alphabetical order. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select distinct (select name 
@@ -68,7 +92,12 @@ where r1.rid <> r2.rid and (select name
 order by n1
 ```
 
+</details>
+
 6. For each rating that is the lowest (fewest stars) currently in the database, return the reviewer name, movie title, and number of stars. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select name, title, stars
@@ -77,7 +106,12 @@ where stars in (select min(stars)
                 from rating)
 ```
 
+</details>
+
 7. For each movie, return the title and the 'rating spread', that is, the difference between highest and lowest ratings given to that movie. Sort by rating spread from highest to lowest, then by movie title. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select title, max(stars)-min(stars) as spread
@@ -86,8 +120,13 @@ group by mid
 order by spread desc, title
 ```
 
+</details>
+
 
 8. Find the difference between the average rating of movies released before 1980 and the average rating of movies released after 1980. (Make sure to calculate the average rating for each movie, then the average of those averages for movies before 1980 and movies after. Don't just calculate the overall average rating before and after 1980.) 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select (select avg(av)
@@ -102,8 +141,13 @@ select (select avg(av)
         where year>1980)
 ```
 
+</details>
+
 
 9. Some directors directed more than one movie. For all such directors, return the titles of all movies directed by them, along with the director name. Sort by director name, then movie title. (As an extra challenge, try writing the query both with and without COUNT.) 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select title, director 
@@ -115,8 +159,13 @@ where director in (select director
 order by director, title
 ```
 
+</details>
+
 
 10. Find the movie(s) with the highest average rating. Return the movie title(s) and average rating. (Hint: This query is more difficult to write in SQLite than other systems; you might think of it as finding the highest average rating and then choosing the movie(s) with that average rating.) 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select title, av
@@ -129,8 +178,13 @@ where av in (select max(av)
                    group by mid))
 ```
 
+</details>
+
 
 11. Find the movie(s) with the lowest average rating. Return the movie title(s) and average rating. (Hint: This query may be more difficult to write in SQLite than other systems; you might think of it as finding the lowest average rating and then choosing the movie(s) with that average rating.) 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select title, av
@@ -143,8 +197,13 @@ where av in (select min(av)
                    group by mid))
 ```
 
+</details>
+
 
 12. For each director, return the director's name together with the title(s) of the movie(s) they directed that received the highest rating among all of their movies, and the value of that rating. Ignore movies whose director is NULL. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select distinct director, title, stars
@@ -153,6 +212,8 @@ where stars in (select max(stars)
                 from rating join movie using (mid) 
                 where m.director = director)
 ```
+
+</details>
 
 
 ## Social-Network Query Exercises
@@ -163,6 +224,9 @@ where stars in (select max(stars)
 
 1. For every situation where student A likes student B, but we have no information about whom B likes (that is, B does not appear as an ID1 in the Likes table), return A and B's names and grades. 
 
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
+
 ```SQL
 select (select name from Highschooler where id=id1), 
        (select grade from Highschooler where id=id1), 
@@ -172,8 +236,13 @@ from likes
 where id2 not in (select id1 from likes)
 ```
 
+</details>
+
 
 2. Find all students who do not appear in the Likes table (as a student who likes or is liked) and return their names and grades. Sort by grade, then by name within each grade. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select name, grade
@@ -182,8 +251,13 @@ where id not in (select id1 from likes union select id2 from likes)
 order by grade, name
 ```
 
+</details>
+
 
 3. For each student A who likes a student B where the two are not friends, find if they have a friend C in common (who can introduce them!). For all such trios, return the name and grade of A, B, and C. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 SELECT ha.name, ha.grade,  hb.name, hb.grade, hc.name, hc.grade 
@@ -194,8 +268,13 @@ WHERE ha.id IN (SELECT f.id1 FROM friend f WHERE f.id2 = hc.id)
     AND hb.id NOT IN (SELECT f.id2 FROM friend f WHERE f.id1 = ha.id);  
 ```
 
+</details>
+
 
 4. Find the name and grade of all students who are liked by more than one other student.  
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select h.name, h.grade 
@@ -208,8 +287,13 @@ join (
     on ll.id2 = h.id ; 
 ```
 
+</details>
+
 
 5. For every situation where student A likes student B, but student B likes a different student C, return the names and grades of A, B, and C. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 SELECT ha.name, ha.grade, hb.name, hb.grade, hc.name, hc.grade   
@@ -219,7 +303,12 @@ WHERE ha.id = l1.id1 AND hb.id = l1.id2 AND hc.id = l2.id2
 AND l1.id2 = l2.id1 and l1.id1 <> l2.id2; 
 ```
 
+</details>
+
 6. Find those students for whom all of their friends are in different grades from themselves. Return the students' names and grades. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select name, grade
@@ -229,8 +318,13 @@ where not grade in (select grade
                     where a.id2=h1.id)
 ```
 
+</details>
+
 
 7. Find the number of students who are either friends with Cassandra or are friends of friends of Cassandra. Do not count Cassandra, even though technically she is a friend of a friend. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select count(*)
@@ -239,8 +333,13 @@ from (select * from friend where id1 = (select id from Highschooler where name =
      (select * from friend) b on a.id2=b.id1
 ```
 
+</details>
+
 
 8. Find the name and grade of the student(s) with the greatest number of friends. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 select name, grade
@@ -252,6 +351,8 @@ where c = (select max(c)
                  from friend 
                  group by id1))
 ```
+
+</details>
 
 
 ## Data manipulation language
@@ -274,6 +375,9 @@ where name='James Cameron'
 
 3. For all movies that have an average rating of 4 stars or higher, add 25 to the release year. (Update the existing tuples; don't insert new tuples.) 
 
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
+
 ```SQL
 update movie
 set year = year+25
@@ -283,8 +387,13 @@ where mid in (select mid
               having avg(stars) >=4)
 ```
 
+</details>
+
 
 4. Remove all ratings where the movie's year is before 1970 or after 2000, and the rating is fewer than 4 stars. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 delete from rating
@@ -293,6 +402,8 @@ where mid in (select mid
               where year<1970 or year>2000) 
       and stars <4
 ```
+
+</details>
 
 
 1. It's time for the seniors to graduate. Remove all 12th graders from Highschooler. 
@@ -305,6 +416,9 @@ where grade =12
 
 2. If two students A and B are friends, and A likes B but not vice-versa, remove the Likes tuple. 
 
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
+
 ```SQL
 delete from likes
 where id1 in (select likes.id1 
@@ -315,8 +429,13 @@ where id1 in (select likes.id1
                       where friend.id2 = likes.id2)
 ```
 
+</details>
+
 
 3. For all cases where A is friends with B, and B is friends with C, add a new friendship for the pair A and C. Do not add duplicate friendships, friendships that already exist, or friendships with oneself. 
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
 
 ```SQL
 insert into friend
@@ -326,7 +445,12 @@ where f1.id1 <> f2.id2
 except
 select * from friend
 ```
----
+
+</details>
+
+<details>
+<summary><i> <center> Example answer</center> </i></summary>
+
 
 ```SQL
 insert into friend 
@@ -335,6 +459,8 @@ from friend f1, friend f2
 where f1.id2 = f2.id1 and f1.id1 <> f2.id2 
 and not f1.id1 in (select f3.id1 from friend f3 where f3.id2 = f2.id2);
 ```
+
+</details>
 
 
 **Reference**
